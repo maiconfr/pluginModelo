@@ -100,5 +100,3 @@ function aplica404(){
   include "app/controllers/paginas/Pagina404.php";
   $PageController = new Pagina404;
 }
-
-require_once __DIR__ . '/conConfig.php';
