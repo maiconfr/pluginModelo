@@ -1,7 +1,7 @@
 <?php
 //auto load
 $ssl = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http';
-if($_SERVER['HTTP_HOST'] == "localhost"){
+if($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "server.indoortech.com.br:8081"){
   define("URLBASE", $ssl."://".$_SERVER['HTTP_HOST']."/filaInteligente/");
 }else{
   define("URLBASE", $ssl."://".$_SERVER['HTTP_HOST']."/");

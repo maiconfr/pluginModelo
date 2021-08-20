@@ -57,8 +57,17 @@ class Painel extends Pagina
     if(isset($this->mensagemErro)) require_once("app/views/elementos/erroLogin.php");
   }
 
-  function fila(){
-    
+  function fila($idFila=0){
+    if (isset($_POST["novoWhatsFila"])){
+    $whatsapp = $_POST["novoWhatsFila"];
+    $agente = $_POST["nomeAtendente"];
+
+    $model = new ModelFila;
+    $model->adicionaAgente($agente, $whatsapp,$this->idDoUsuario,$idFila);
+
+    }
+
+    require_once("app/views/fila.php");
   }
 
 }
