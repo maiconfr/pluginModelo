@@ -3,7 +3,7 @@
 /**
  *
  */
-class ModelSession
+class LibSession
 {
 
   function __construct()

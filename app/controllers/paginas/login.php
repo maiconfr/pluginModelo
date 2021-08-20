@@ -38,4 +38,10 @@ class Login extends Pagina
       require_once("app/views/elementos/erroLogin.php");
     }
   }
+
+  function logout(){
+    $model = new ModelLogin;
+    $model->logout();
+    header("Location: ".URLBASE."login");
+  }
 }
