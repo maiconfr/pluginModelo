@@ -8,7 +8,7 @@ class Teste extends Pagina
 
   function __construct()
   {
-    // code...
+    
   }
 
   function body(){
