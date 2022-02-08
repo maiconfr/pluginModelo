@@ -14,10 +14,13 @@
 defined('ABSPATH') or die("Acesso Negado");
 
 require_once(__DIR__.DIRECTORY_SEPARATOR."roteador.php");
+
+if (!class_exists('IndooTechAtualizacao'))
+include __DIR__."/libs/updateClass.php";
 /**
  *
  */
-class PluginModelo
+class PluginModelo extends IndooTechAtualizacao
 {
   public $dbConfig = "rc_config";
   public $roteador;
@@ -30,6 +33,10 @@ class PluginModelo
   public $urlPlugin;
   public $versaoScript = "1.0";
 
+  public $nomeDoPacote = "PluginModelo";
+  public $urlJsonUpdate = "https://indoortech.com.br/itPanel/api/....json";
+  public $vercaoPlugin = "1.0.0";
+  public $caminhoBasePlugin = __FILE__;
 
 function __construct()
 {
@@ -154,6 +161,8 @@ add_action("admin_menu", array($pluginModelo, "declararMenu"));
 add_action("admin_enqueue_scripts", array($pluginModelo, "scriptsMenuAdmin"));
 add_action('init',array($integracaoRealClinic, 'remove_painel_admin'));
 
+//verifica se ha atualizao e extendida do IndooTechAtualizacao
+add_filter('site_transient_update_plugins', array($iTRouter,'verificaAtualizacao'));
 
 //Shortcodes de páginas
 add_shortcode("paginaModeloIndoor", array($pluginModelo, "paginaModelo"));
