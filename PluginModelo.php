@@ -22,7 +22,7 @@ include __DIR__."/libs/updateClass.php";
  */
 class PluginModelo extends IndooTechAtualizacao
 {
-  public $dbConfig = "rc_config";
+  public $dbConfig = "";
   public $roteador;
 
   public $root = __DIR__;
@@ -114,7 +114,6 @@ function __construct()
 
   function scriptsMenuAdmin(){
     wp_enqueue_style("meterializeRCCSS", $this->urlPlugin."public/css/materialize.css", array(), "1.0", false);
-    wp_enqueue_style("meterializeRCCSS", $this->urlPlugin."public/css/custom.css", array(), "1.0", false);
 
     wp_enqueue_script("jqueryRCJS", $this->urlPlugin."public/js/jquery.js", array(), "1.0", true);
     wp_enqueue_script("materializeRCJS", $this->urlPlugin."public/js/materialize.js", array(), "1.0", true);
@@ -122,17 +121,6 @@ function __construct()
 
   function redirecionaTela($url="document.location.href"){
     echo "<script type='text/javascript'>window.location = ".$url." </script>";
-  }
-
-  function getDbConfig($tipoConfig, $nomeConfig=false){
-    global $wpdb;
-    if ($nomeConfig !== false) {
-      $sql = $wpdb->prepare("SELECT * FROM ".$wpdb->prefix.$this->dbConfig. " WHERE tipoConfig = %s AND nomeConfig = %s", $tipoConfig, $nomeConfig);
-      return $wpdb->get_results($sql, ARRAY_A);
-    }else{
-      $sql = $wpdb->prepare("SELECT * FROM ".$wpdb->prefix.$this->dbConfig. " WHERE tipoConfig = %s", $tipoConfig);
-      return $wpdb->get_results($sql, ARRAY_A);
-    }
   }
 
   function declaraAutoload(){
