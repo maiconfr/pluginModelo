@@ -3,7 +3,7 @@
 /**
  *
  */
-class Agendamento extends Pagina
+class PaginaModelo extends Pagina
 {
 
   function __construct()
@@ -11,7 +11,7 @@ class Agendamento extends Pagina
     parent::__construct();
   }
 
-  function paginaModelo(){
+  function paginaModeloPlugin(){
     wp_enqueue_style("meterializePluginCSS", $this->urlPlugin."public/css/materialize.min.css", array(), "1.0", false);
 
     wp_enqueue_script("jqueryPluginJS", $this->urlPlugin."public/js/jquery.js", array(), "1.0", true);
@@ -21,4 +21,5 @@ class Agendamento extends Pagina
     ob_start();
     require_once($this->caminhoViews.DIRECTORY_SEPARATOR.'paginaModelo.php');
     return ob_get_clean();
+  }
 }

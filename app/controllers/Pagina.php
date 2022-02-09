@@ -4,7 +4,7 @@
 /**
  * Classe para extender as propriedades do arquivo principal
  */
-class Pagina extends IntegracaoRealClinic
+class Pagina extends PluginModelo
 {
 
   function __construct()

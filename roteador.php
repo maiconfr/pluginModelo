@@ -4,7 +4,7 @@
 * Roteador para o modelo MVC integrado com
 * o formato de plugin do Wordpress
 */
-class RoteadorRC extends IntegracaoRealClinic
+class RoteadorPluginModelo extends PluginModelo
 {
 
   function __construct()
